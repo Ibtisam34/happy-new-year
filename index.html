@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>happy new year</title>
+
+  <style>
+    @media screen and (max-width:767px) {
+     @import url('https://fonts.googleapis.com/css2?family=Antonio&display=swap'); 
+     body {
+  background-image: url(https://images.unsplash.com/photo-1524463605186-e47d03ea3c6f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8YmxhY2slMjBhbmQlMjByZWR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60);
+    
+  margin: 0;
+  height: 1vh;
+  overflow: hidden;
+}
+
+@keyframes firework {
+  0% { transform: translate(var(--x), var(--initialY)); width: var(--initialSize); opacity: 1; }
+  50% { width: 0.5vmin; opacity: 1; }
+  100% { width: var(--finalSize); opacity: 0; }
+}
+
+@keyframes fireworkPseudo {
+  0% { transform: translate(-50%, -50%); width: var(--initialSize); opacity: 1; }
+  50% { width: 0.5vmin; opacity: 1; }
+  100% { width: var(--finalSize); opacity: 0; }
+}
+
+.firework,
+.firework::before,
+.firework::after
+{
+  --initialSize: 0.5vmin;
+  --finalSize: 45vmin;
+  --particleSize: 0.2vmin;
+  --color1: yellow;
+  --color2: khaki;
+  --color3: white;
+  --color4: lime;
+  --color5: gold;
+  --color6: mediumseagreen;
+  --y: -30vmin;
+  --x: -50%;
+  --initialY: 60vmin;
+  content: "";
+  animation: firework 2s infinite;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, var(--y));
+  width: var(--initialSize);
+  aspect-ratio: 1;
+  background: 
+    /*
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 0% 0%,
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 100% 0%,
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 100% 100%,
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 0% 100%,
+    */
+    
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 50% 0%,
+    radial-gradient(circle, var(--color2) var(--particleSize), #0000 0) 100% 50%,
+    radial-gradient(circle, var(--color3) var(--particleSize), #0000 0) 50% 100%,
+    radial-gradient(circle, var(--color4) var(--particleSize), #0000 0) 0% 50%,
+    
+    /* bottom right */
+    radial-gradient(circle, var(--color5) var(--particleSize), #0000 0) 80% 90%,
+    radial-gradient(circle, var(--color6) var(--particleSize), #0000 0) 95% 90%,
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 90% 70%,
+    radial-gradient(circle, var(--color2) var(--particleSize), #0000 0) 100% 60%,
+    radial-gradient(circle, var(--color3) var(--particleSize), #0000 0) 55% 80%,
+    radial-gradient(circle, var(--color4) var(--particleSize), #0000 0) 70% 77%,
+    
+    /* bottom left */
+    radial-gradient(circle, var(--color5) var(--particleSize), #0000 0) 22% 90%,
+    radial-gradient(circle, var(--color6) var(--particleSize), #0000 0) 45% 90%,
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 33% 70%,
+    radial-gradient(circle, var(--color2) var(--particleSize), #0000 0) 10% 60%,
+    radial-gradient(circle, var(--color3) var(--particleSize), #0000 0) 31% 80%,
+    radial-gradient(circle, var(--color4) var(--particleSize), #0000 0) 28% 77%,
+    radial-gradient(circle, var(--color5) var(--particleSize), #0000 0) 13% 72%,
+    
+    /* top left */
+    radial-gradient(circle, var(--color6) var(--particleSize), #0000 0) 80% 10%,
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 95% 14%,
+    radial-gradient(circle, var(--color2) var(--particleSize), #0000 0) 90% 23%,
+    radial-gradient(circle, var(--color3) var(--particleSize), #0000 0) 100% 43%,
+    radial-gradient(circle, var(--color4) var(--particleSize), #0000 0) 85% 27%,
+    radial-gradient(circle, var(--color5) var(--particleSize), #0000 0) 77% 37%,
+    radial-gradient(circle, var(--color6) var(--particleSize), #0000 0) 60% 7%,
+    
+    /* top right */
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 22% 14%,
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 45% 20%,
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 33% 34%,
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 10% 29%,
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 31% 37%,
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 28% 7%,
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 13% 42%
+    ;
+  background-size: var(--initialSize) var(--initialSize);
+  background-repeat: no-repeat;
+}
+
+.firework::before {
+  --x: -50%;
+  --y: -50%;
+  --initialY: -50%;
+/*   transform: translate(-20vmin, -2vmin) rotate(40deg) scale(1.3) rotateY(40deg); */
+  transform: translate(-50%, -50%) rotate(40deg) scale(1.3) rotateY(40deg);
+/*   animation: fireworkPseudo 2s infinite; */
+}
+
+.firework::after {
+  --x: -50%;
+  --y: -50%;
+  --initialY: -50%;
+/*   transform: translate(44vmin, -50%) rotate(170deg) scale(1.15) rotateY(-30deg); */
+  transform: translate(-50%, -50%) rotate(170deg) scale(1.15) rotateY(-30deg);
+/*   animation: fireworkPseudo 2s infinite; */
+}
+
+.firework:nth-child(2) {
+  --x: 30vmin;
+}
+
+.firework:nth-child(2),
+.firework:nth-child(2)::before,
+.firework:nth-child(2)::after {
+  --color1: pink;
+  --color2: violet;
+  --color3: fuchsia;
+  --color4: orchid;
+  --color5: plum;
+  --color6: lavender;  
+  --finalSize: 40vmin;
+  left: 30%;
+  top: 60%;
+  animation-delay: -0.25s;
+}
+
+.firework:nth-child(3) {
+  --x: -30vmin;
+  --y: -50vmin;
+}
+
+.firework:nth-child(3),
+.firework:nth-child(3)::before,
+.firework:nth-child(3)::after {
+  --color1: cyan;
+  --color2: lightcyan;
+  --color3: lightblue;
+  --color4: PaleTurquoise;
+  --color5: SkyBlue;
+  --color6: lavender;
+  --finalSize: 35vmin;
+  left: 70%;
+  top: 60%;
+  animation-delay: -0.4s;
+}
+
+
+
+    .card {
+      float: left;
+      width: 50%;
+      height: auto;
+      background-color: #000;
+      box-shadow: 2px 2px 5px #aaaaaa;
+      display: flex;
+      flex-direction: center;
+      align-items: center;
+      justify-content: center;
+      margin-top: 50%;
+      margin-left: 22%;
+      padding: 20px;
+    }
+
+    .img-front {
+      width: 50%;
+      height: auto;
+      border-radius: 50%;
+    }
+  
+    h1 {
+      margin-top: 20%;
+      text-align: center;
+      font-size: 24px;
+      color: rgb(81, 167, 224);
+    }
+
+  
+    h2 .A-1 {
+        color: #262626;
+        border-radius: 5px;
+        background: rgb(243, 7, 7);
+        padding: 10px 20px;
+        display: table-cell;
+        box-shadow: inset 0 0 5px
+            rgba(226, 33, 19, 0.3),
+                0 5px 0 #ccc;
+        animation: animate 0.5s infinite;
+    }
+
+  
+    /* Specify the animation keyframes
+        to be used to move the letters */
+    @keyframes animate {
+        0% {
+            transform: translateY(0px);
+        }
+ 
+        50% {
+            transform: translateY(-20px);
+        }
+ 
+        100% {
+            transform: translateY(0px);
+        }
+    }
+ 
+    /* Specify a slight delay for
+        each of the letters */
+    h2 span:nth-child(1) {
+        animation-delay: 0.1s;
+    }
+ 
+    h2 span:nth-child(2) {
+        animation-delay: 0.2s;
+    }
+ 
+    h2 span:nth-child(3) {
+        animation-delay: 0.3s;
+    }
+ 
+    h2 span:nth-child(4) {
+        animation-delay: 0.4s;
+    }
+
+    p {
+      font-size: 14px;
+      text-align: center;
+    }
+
+    /* CSS RESET */
+
+/* ALIGN CONTENT */
+.container {
+  display: flex;
+  /* Remove horizontal 'justify-content' center if you want the base text not to move */
+  justify-content: center;
+  align-items: center;
+}
+
+/* ADD CURSOR */
+.txt-type > .txt {
+  border-right: 0.08rem solid #fff;
+  padding-right: 2px;
+  /* Animating the cursor */
+  animation: blink 0.6s infinite;
+}
+
+/* ANIMATION */
+@keyframes blink {
+  0% {
+    border-right: 0.08rem solid rgba(255, 255, 255, 1);
+  }
+  100% {
+    border-right: 0.08rem solid rgba(255, 255, 255, 0.2);
+  }
+}
+  #page .section-background {background: white;}
+  #page section * {color: black !important;}
+  #page .content {
+    width: 100%;
+}
+    }
+  </style>
+</head>
+<body>
+  <!-- add the greeting card here -->
+  <div class="container">
+    <h1>
+      <span class="txt-type" data-wait="3000" data-words='["Every New Year’s Eve",	
+      "&#10042;","each and every one of us makes resolutions and promises to keep them.",	
+      "&#127881;"," The only resolution that actually matters to me is a promise to make you feel loved and supported throughout the upcoming year and forevermore.","We’re getting older, did you notice that ? But there’s one thing that will never get old – it’s our friendship. May this year be filled with amazing adventures and unexpected journeys. ","Happy", "new", "year", "Bestie", "I","love","you", "Hands down, you are the best human being on the planet. Thank you for being with me through all these years. There’s so much more to come! Life is amazing with you in it. Have a very happy New Year, sweetie!"]'></span>
+    </h1>
+      <h2 class="A-1">
+      <span class="A-1">A</span>
+      <span class="A-1">I</span>
+      <span class="A-1">L</span>
+      <span class="A-1">O</span>
+      </h2>
+  </div>
+  <div class="firework"></div>
+  <div class="firework"></div>
+  <div class="firework"></div>
+  <div class="card">
+    <!-- Add an image -->
+    <img class="img-front"
+    src="./friend.png" alt="best friend ">
+    <!-- add some text -->
+    <p>
+   <script>
+     class TypeWriter {
+  constructor(txtElement, words, wait = 2000) {
+    this.txtElement = txtElement;
+    this.words = words;
+    this.txt = "";
+    this.wordIndex = 0;
+    this.wait = parseInt(wait, 5);
+    this.type();
+    this.isDeleting = false;
+  }
+
+  type() {
+    // Current index of word
+    const current = this.wordIndex % this.words.length;
+    // Get full text of current word
+    const fullTxt = this.words[current];
+
+    // Check if deleting
+    if (this.isDeleting) {
+      // Remove characters
+      this.txt = fullTxt.substring(0, this.txt.length - 1);
+    } else {
+      // Add charaters
+      this.txt = fullTxt.substring(0, this.txt.length + 1);
+    }
+
+    // Insert txt into element
+    this.txtElement.innerHTML = `<span class="txt">${this.txt}</span>`;
+
+    // Initial Type Speed
+    let typeSpeed = 60;
+
+    if (this.isDeleting) {
+      // Increase speed by half when deleting
+      typeSpeed /= 2;
+    }
+
+    // If word is complete
+    if (!this.isDeleting && this.txt === fullTxt) {
+      // Make pause at end
+      typeSpeed = this.wait;
+      // Set delete to true
+      this.isDeleting = true;
+    } else if (this.isDeleting && this.txt === "") {
+      this.isDeleting = false;
+      // Move to next word
+      this.wordIndex++;
+      // Pause before start typing
+      typeSpeed = 500;
+    }
+
+    setTimeout(() => this.type(), typeSpeed);
+  }
+}
+
+// Init On DOM Load
+document.addEventListener("DOMContentLoaded", init);
+
+// Init App
+function init() {
+  const txtElement = document.querySelector(".txt-type");
+  const words = JSON.parse(txtElement.getAttribute("data-words"));
+  const wait = txtElement.getAttribute("data-wait");
+  // Init TypeWriter
+  new TypeWriter(txtElement, words, wait);
+}
+   </script>
+</body>
+</html>
